@@ -25,6 +25,7 @@
 #ifndef SOFA_GPU_CUDA_GPUCUDA_H
 #define SOFA_GPU_CUDA_GPUCUDA_H
 
+#include <windows.h>
 #include <sofa/helper/system/config.h>
 
 #ifdef SOFA_BUILD_GPU_CUDA

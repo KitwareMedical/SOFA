@@ -30,6 +30,8 @@
 #include <sofa/core/visual/VisualParams.h>
 #include <sofa/component/topology/CommonAlgorithms.h>
 
+#include <algorithm>
+
 namespace sofa
 {
 
