@@ -1,8 +1,8 @@
-# cmake modules path, for our FindXXX.cmake modules
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${SOFA_CMAKE_DIR})
-
 # useful pathes
 set(SOFA_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "Path to the Sofa cmake directory")
+
+# cmake modules path, for our FindXXX.cmake modules
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${SOFA_CMAKE_DIR})
 
 set(SOFA_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE INTERNAL "Path to the Sofa source directory")
 set(SOFA_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR} CACHE INTERNAL "Path to the Sofa build directory")
