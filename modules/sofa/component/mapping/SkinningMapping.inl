@@ -315,9 +315,12 @@ void SkinningMapping<TIn, TOut>::apply ( typename Out::VecCoord& out, const type
             if(nbRef.getValue().size() == m_weights.size())
                 nbref = nbRef.getValue()[i];
             bool atLeast1Weight = false;
-            for ( unsigned int j=0; j<nbref && m_weights[i][j]>0.; j++ )
+            for ( unsigned int j=0; j<nbref; j++ )
             {
-                atLeast1Weight = true;
+                if ( m_weights[i][j] > 0.)
+                   {
+                   atLeast1Weight = true;
+                   }
                 f_rotatedPos[i][j]=in[index[i][j]].rotate(f_localPos[i][j]);
                 out[i] += in[index[i][j]].getCenter() * m_weights[i][j] + f_rotatedPos[i][j];
             }
