@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<Node name="Root" gravity="0 0 -9.81" dt="0.02">
+    <VisualStyle displayFlags="showVisual showMappings" />
+    <LayeredDepthImagesPipeline name="LDI" selfcollision="1" pressure="3" pressureself="0.3" resolution="64" depthBB="6" />
+    <LDIDetection name="Detection" />
+    <BruteForceDetection name="Detection" />
+    <MinProximityIntersection name="Proximity" alarmDistance="0.3" contactDistance="0.2" />
+    <DefaultContactManager name="Response" response="LDI" />
+    <TreeCollisionGroupManager name="Group" />
+    <Node name="Fixed">
+        <MeshObjLoader name="loader" filename="mesh/SaladBowl.obj" />
+        <MeshTopology src="@loader" name="meshTopology1" tags="LDI" />
+        <MechanicalObject src="@loader" template="Vec3d" name="mechanicalObject1" position="0 0 0" velocity="0 0 0" force="0 0 0" externalForce="0 0 0" derivX="0 0 0" restScale="1" showObjectScale="0.1" showIndicesScale="0.0001" translation="0 -50 -50" scale3d="150 150 150" />
+        <TriangleModelInRegularGrid template="Vec3d" name="triangleModelInRegularGrid36" moving="0" simulated="0" />
+        <OglModel template="ExtVec3f" name="oglModel33" fileMesh="mesh/SaladBowl.obj" translation="0 -50 -50" scale3d="150 150 150" material="Default Diffuse 1 0.74902 0.74902 0.74902 1 Ambient 1 0.2 0.2 0.2 1 Specular 0 1 1 1 1 Emissive 0 0 0 0 0 Shininess 0 45 No texture linked to the material No bump texture linked to the material " />
+    </Node>
+    <Node name="Teodule" gravity="0 -9.81 0">
+        <EulerImplicitSolver name="default13" rayleighStiffness="0.01" />
+        <CGLinearSolver template="GraphScattered" name="default14" iterations="25" threshold="1e-008" />
+        <SparseGridTopology name="default15" fileTopology="mesh/Teodule_LowRes.obj" n="18 4 18" />
+        <MechanicalObject template="Vec3d" name="default16" position="0 0 0" velocity="0 0 0" force="0 0 0" externalForce="0 0 0" derivX="0 0 0" restScale="1" translation="0 0 0" rotation="0 0 90" scale3d="1 1 1" />
+        <UniformMass template="Vec3d" name="default17" totalmass="30" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" method="polar" poissonRatio="0.3" youngModulus="30" />
+        <Node name="VisualNode" gravity="0 -9.81 0">
+            <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/Teodule_Smoothed2.obj" material="Default Diffuse 1 1 0 0 1 Ambient 1 0.2 0 0 1 Specular 0 1 0 0 1 Emissive 0 1 0 0 1 Shininess 0 45 No texture linked to the material No bump texture linked to the material " />
+            <BarycentricMapping template="Mapping&lt;Vec3d,ExtVec3f&gt;" name="default18" mapForces="0" mapConstraints="0" mapMasses="0" input="@.." output="@Visual" />
+        </Node>
+        <Node name="CollisionNode" gravity="0 -9.81 0">
+            <MeshObjLoader name="loader" filename="mesh/Teodule_LowRes.obj" />
+            <MeshTopology src="@loader" name="default20" />
+            <MechanicalObject src="@loader" template="Vec3d" name="default21" position="0 0 0" velocity="0 0 0" force="0 0 0" externalForce="0 0 0" derivX="0 0 0" restScale="1" />
+            <TriangleModelInRegularGrid template="Vec3d" name="default22" selfCollision="1" contactStiffness="10" contactFriction="30" />
+            <BarycentricMapping template="Mapping&lt;Vec3d,Vec3d&gt;" name="default25" input="@.." output="@." />
+        </Node>
+    </Node>
+</Node>

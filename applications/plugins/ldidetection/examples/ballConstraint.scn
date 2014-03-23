@@ -1,0 +1,70 @@
+<Node name="Root" gravity="0 -9.81 0" dt="0.02">
+    <LayeredDepthImagesPipeline name="default0" resolution="128" resolutionPixel="30" />
+    <LDIDetection name="default5" />
+    <BruteForceDetection name="Detection" />
+    <MinProximityIntersection name="Proximity" alarmDistance="0.3" contactDistance="0.2" />
+    <DefaultContactManager name="Response" response="LDIConstraint" />
+    <DefaultCollisionGroupManager name="Group" />
+    <VisualStyle displayFlags="showCollisionModels" />
+    <EulerImplicitSolver name="default26" constraintVel="1" constraintPos="1" constraintResolution="1" />
+    <CGLinearSolver template="GraphScattered" name="default31" tolerance="1e-07" threshold="1e-07" />
+    <LMConstraintSolver name="default22" listening="1" constraintVel="1" constraintPos="1" />
+    <Node name="Fixed" gravity="0 -9.81 0">
+        <MeshObjLoader name="loader" filename="mesh/cube.obj" />
+        <MeshTopology src="@loader" name="default170" />
+        <MechanicalObject src="@loader" template="Vec3d" name="default171" translation="0 0 0" rotation="0 0 -1" scale="1" restScale="1" position="0 0 0" />
+        <TriangleModel name="default172" moving="0" simulated="0" contactStiffness="10" contactFriction="30" />
+        <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/cube.obj" translation="0 0 0" rotation="0 0 -1" scale="1" material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45" />
+    </Node>
+    <Node name="Fixed" gravity="0 -9.81 0">
+        <MeshObjLoader name="loader" filename="mesh/cube.obj" />
+        <MeshTopology src="@loader" name="default156" />
+        <MechanicalObject src="@loader" template="Vec3d" name="default157" translation="2 -1 0" rotation="0 0 0" scale="1" restScale="1" position="0 0 0" />
+        <TriangleModel name="default158" moving="0" simulated="0" contactStiffness="10" contactFriction="30" />
+        <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/cube.obj" translation="2 -1 0" rotation="0 0 0" scale="1" material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45" />
+    </Node>
+    <Node name="Fixed" gravity="0 -9.81 0">
+        <MeshObjLoader name="loader" filename="mesh/cube.obj" />
+        <MeshTopology src="@loader" name="default168" />
+        <MechanicalObject src="@loader" template="Vec3d" name="default169" translation="4 -2 0" rotation="0 0 0" scale="1" restScale="1" position="0 0 0" />
+        <TriangleModel name="default170" moving="0" simulated="0" contactStiffness="10" contactFriction="30" />
+        <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/cube.obj" translation="4 -2 0" rotation="0 0 0" scale="1" material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45" />
+    </Node>
+    <Node name="Fixed" gravity="0 -9.81 0">
+        <MeshObjLoader name="loader" filename="mesh/cube.obj" />
+        <MeshTopology src="@loader" name="default168" />
+        <MechanicalObject src="@loader" template="Vec3d" name="default169" translation="6 -3 0" rotation="0 0 0" scale="1" restScale="1" position="0 0 0" />
+        <TriangleModel name="default170" moving="0" simulated="0" contactStiffness="10" contactFriction="30" />
+        <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/cube.obj" translation="6 -3 0" rotation="0 0 0" scale="1" material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45" />
+    </Node>
+    <Node name="Fixed" gravity="0 -9.81 0">
+        <MeshObjLoader name="loader" filename="mesh/cube.obj" />
+        <MeshTopology src="@loader" name="default168" />
+        <MechanicalObject src="@loader" template="Vec3d" name="default169" translation="8 -4 0" rotation="0 0 0" scale="1" restScale="1" position="0 0 0" />
+        <TriangleModel name="default170" moving="0" simulated="0" contactStiffness="10" contactFriction="30" />
+        <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/cube.obj" translation="8 -4 0" rotation="0 0 0" scale="1" material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45" />
+    </Node>
+    <Node name="StartCard" gravity="0 -9.81 0">
+        <MeshTopology name="default316" filename="mesh/cube.obj" />
+        <MechanicalObject template="Vec3d" name="default317" translation="-2.5 0.7 0" rotation="0 0 -45" scale="1.5" />
+        <TriangleModel name="default318" moving="0" simulated="0" contactStiffness="10" contactFriction="30" />
+        <OglModel template="ExtVec3f" filename="mesh/cube.obj" name="Visual" translation="-2.5 0.7 0" rotation="0 0 -45" scale="1.5" material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45" />
+    </Node>
+    <Node name="Ball" gravity="0 -9.81 0">
+        <EulerImplicitSolver name="default315" rayleighStiffness="0.01" />
+        <CGLinearSolver template="GraphScattered" name="default316" iterations="25" threshold="1e-08" />
+        <MechanicalObject template="Rigid" name="default318" translation="-1 3 0" rotation="0 0 0" scale="1" restScale="1" velocity="1 0 0 0 0 0" />
+        <UniformMass template="Rigid" name="default319" totalmass="1" />
+        <Node name="VisualNode" gravity="0 -9.81 0">
+            <OglModel template="ExtVec3f" name="Visual" fileMesh="mesh/ball.obj" texturename="textures/floor2.bmp" material="Default Diffuse 1 1 0 0 1 Ambient 1 0.2 0 0 1 Specular 0 1 0 0 1 Emissive 0 1 0 0 1 Shininess 0 45" />
+            <RigidMapping template="Mapping&lt;Rigid,ExtVec3f&gt;" name="default320" object1="../.." object2="Visual" />
+        </Node>
+        <Node name="CollisionNode" gravity="0 -9.81 0">
+            <MeshObjLoader name="loader" filename="mesh/ball.obj" />
+            <MeshTopology src="@loader" name="default321" />
+            <MechanicalObject src="@loader" template="Vec3d" name="default322" restScale="1" position="0 0 0" />
+            <TriangleModel name="default323" contactFriction="30" />
+            <RigidMapping template="MechanicalMapping&lt;Rigid,Vec3d&gt;" name="default326" />
+        </Node>
+    </Node>
+</Node>
