@@ -167,9 +167,9 @@ protected:
         {
         case QEvent::FileOpen:
         {
-            std::string filename = static_cast<QFileOpenEvent *>(event)->file().ascii();
-            if (filename != std::string(static_cast<RealGUI*>(mainWidget())->windowFilePath().ascii()))
-                static_cast<RealGUI*>(mainWidget())->fileOpen(static_cast<QFileOpenEvent *>(event)->file().ascii());
+        //std::string filename = static_cast<QFileOpenEvent *>(event)->file().ascii();
+        // if (filename != std::string(static_cast<RealGUI*>(mainWidget())->windowFilePath().ascii()))
+        //        static_cast<RealGUI*>(mainWidget())->fileOpen(static_cast<QFileOpenEvent *>(event)->file().ascii());
             return true;
         }
         default:
