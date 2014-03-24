@@ -406,11 +406,12 @@ void UniformMass<DataTypes, MassType>::addMToMatrix (const core::MechanicalParam
     const MassType& m = mass.getValue();
     const int N = defaulttype::DataTypeInfo<Deriv>::size();
     const unsigned int size = this->mstate->getSize();
-    AddMToMatrixFunctor<Deriv,MassType> calc;
+    assert(false);
+    //AddMToMatrixFunctor<Deriv,MassType> calc;
     sofa::core::behavior::MultiMatrixAccessor::MatrixRef r = matrix->getMatrix(this->mstate);
     Real mFactor = (Real)mparams->mFactorIncludingRayleighDamping(this->rayleighMass.getValue());
-    for ( unsigned int i=0; i<size; i++ )
-        calc ( r.matrix, m, r.offset + N*i, mFactor);
+    //for ( unsigned int i=0; i<size; i++ )
+    //    calc ( r.matrix, m, r.offset + N*i, mFactor);
 }
 
 
@@ -427,7 +428,8 @@ void UniformMass<DataTypes, MassType>::getElementMass ( unsigned int /* index */
     if ( m->rowSize() != dimension || m->colSize() != dimension ) m->resize ( dimension, dimension );
 
     m->clear();
-    AddMToMatrixFunctor<Deriv,MassType>() ( m, mass.getValue(), 0, 1 );
+    assert(false);
+    //AddMToMatrixFunctor<Deriv,MassType>() ( m, mass.getValue(), 0, 1 );
 }
 
 
