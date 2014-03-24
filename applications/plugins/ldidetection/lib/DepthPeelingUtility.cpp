@@ -76,10 +76,19 @@ namespace sofa
 #define GLCHECK() {}
 #endif
 
-      DepthPeelingUtility::DepthPeelingUtility(): initialized(false), nbModels(0), nbMaxTriangles(0), resolution(64), number_layer(0), idVBOIdentity(0)
+      DepthPeelingUtility::DepthPeelingUtility()
+        : initialized(false), shader(NULL), currentTS(0)
+        , nbModels(0), nbMaxTriangles(0)
+        , resolution(64), resolutionPixel(0), resolutionMax(0)
+        , number_layer(0), init_shadowmap(NULL), init_idsmap(NULL)
+        , idVBOIdentity(0), idLTexture(0), VBOpixels(0), FBOVolume(0)
+        , geometryQuery(0), prevVolumeResultSize(0), volumeResultSize(0)
+        , volumeResultCurrent(0), volumeResultMapping(NULL)
+        , ping_pong(0), current_orientation(0)
+        , useCUDA(false)
       {
-	resolutionPixel = resolution;
-	useCUDA=false;
+      resolutionPixel = resolution;
+      this->VOI[0] = this->VOI[1] = this->VOI[2] = 0.f;
       }
 
       //***********************************************************************************************************************************
@@ -426,6 +435,8 @@ namespace sofa
 						      bool usePairShader, double adaptiveLength)
     {
       resolution = resolutionMax;
+      assert(orientation < 3);
+      current_orientation = orientation;
 // 	{
 // 	  initFBO();
 // 	}
@@ -470,8 +481,6 @@ namespace sofa
       VOI[0]=(float)(bb.second[(orientation+1)%3] - bb.first[(orientation+1)%3]);
       VOI[1]=(float)(bb.second[(orientation+2)%3] - bb.first[(orientation+2)%3]);
       VOI[2]=(float)(bb.second[(orientation)%3]   - bb.first[(orientation)%3])*1.2f;
-      current_orientation = orientation;
-      assert(orientation < 3);
 
 
       bool init=true;
