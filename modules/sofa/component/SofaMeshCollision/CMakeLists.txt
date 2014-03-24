@@ -58,6 +58,7 @@ set(SOURCE_FILES
     ../collision/PointModel.cpp
     ../collision/LineModel.cpp
     ../collision/TriangleModel.cpp
+    ../collision/TriangleModelInRegularGrid.cpp
     ../collision/TriangleOctree.cpp
     ../collision/TriangleOctreeModel.cpp
     ../collision/RayTriangleIntersection.cpp
