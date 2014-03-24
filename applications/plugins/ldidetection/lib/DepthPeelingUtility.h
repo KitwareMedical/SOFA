@@ -48,7 +48,7 @@ namespace sofa
       typedef std::pair< Vector3, Vector3 > BoundingBox;
       //*******************************************************************************************
       //Class to easily perform a depth peeling
-      class DepthPeelingUtility
+      class SOFA_LDIDETECTION_API DepthPeelingUtility
       {
 	public:
 

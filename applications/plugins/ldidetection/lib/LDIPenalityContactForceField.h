@@ -14,6 +14,7 @@
 #ifndef SOFA_COMPONENT_FORCEFIELD_LDIPENALITYCONTACTFORCEFIELD_H
 #define SOFA_COMPONENT_FORCEFIELD_LDIPENALITYCONTACTFORCEFIELD_H
 
+#include "initldidetection.h"
 #include <sofa/core/behavior/MixedInteractionForceField.h>
 #include <sofa/core/behavior/MechanicalState.h>
 #include <sofa/core/Mapping.h>
@@ -37,7 +38,7 @@ namespace forcefield
   using namespace sofa::component::collision;
 
   template<class DataTypes>
-  class BaseLDIPenalityContactForceField : public virtual core::objectmodel::BaseObject
+  class SOFA_LDIDETECTION_API BaseLDIPenalityContactForceField : public virtual core::objectmodel::BaseObject
   {
   public:
     SOFA_CLASS(BaseLDIPenalityContactForceField,core::objectmodel::BaseObject);
@@ -50,7 +51,7 @@ namespace forcefield
   };
 
   template<class DataTypes1, class DataTypes2, class ResponseDataTypes>
-  class LDIPenalityContactForceField : public core::behavior::MixedInteractionForceField<DataTypes1, DataTypes2>, public BaseLDIPenalityContactForceField<ResponseDataTypes> //PenalityContactForceField<DataTypes>
+  class SOFA_LDIDETECTION_API LDIPenalityContactForceField : public core::behavior::MixedInteractionForceField<DataTypes1, DataTypes2>, public BaseLDIPenalityContactForceField<ResponseDataTypes> //PenalityContactForceField<DataTypes>
   {
   public:
     SOFA_CLASS2(SOFA_TEMPLATE3(LDIPenalityContactForceField,DataTypes1,DataTypes2,ResponseDataTypes),SOFA_TEMPLATE2(core::behavior::MixedInteractionForceField,DataTypes1,DataTypes2),SOFA_TEMPLATE(BaseLDIPenalityContactForceField,ResponseDataTypes));

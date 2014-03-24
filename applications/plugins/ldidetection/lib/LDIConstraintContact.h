@@ -13,6 +13,7 @@
 #ifndef SOFA_COMPONENT_COLLISION_LDICONSTRAINTCONTACT_H
 #define SOFA_COMPONENT_COLLISION_LDICONSTRAINTCONTACT_H
 
+#include "initldidetection.h"
 #include "LDIDetection.h"
 #include <sofa/core/collision/Contact.h>
 #include <sofa/core/collision/Intersection.h>
@@ -36,7 +37,7 @@ namespace sofa
       using namespace sofa::defaulttype;
       using sofa::component::constraint::LDIOutput;
       template < class TCollisionModel1=TriangleModel, class TCollisionModel2=TriangleModel, class ResponseDataTypes = sofa::defaulttype::Vec3Types >
-	class LDIConstraintContact :  public core::collision::Contact
+	class SOFA_LDIDETECTION_API LDIConstraintContact :  public core::collision::Contact
 	{
 
 

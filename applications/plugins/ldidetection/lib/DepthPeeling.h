@@ -8,6 +8,7 @@
 #ifndef _DEPTHPEELING_H_
 #define _DEPTHPEELING_H_
 
+#include "initldidetection.h"
 #ifdef SOFA_HAVE_GLEW 
 #include <GL/glew.h>
 #else
@@ -31,7 +32,7 @@ enum VBO_tag {POSITION,IDENTITY};
 
 //*******************************************************************************************
 //GLSL basic shader
-class GLSL_Shader
+class SOFA_LDIDETECTION_API GLSL_Shader
 {
 public:
     GLSL_Shader();
@@ -83,7 +84,7 @@ protected:
 
       //*******************************************************************************************
       //Specialized Shader for Peeling purpose
-      class PeelingShader: public GLSL_Shader
+      class SOFA_LDIDETECTION_API PeelingShader: public GLSL_Shader
 {
     public:
         PeelingShader();
@@ -106,7 +107,7 @@ protected:
 
       //*******************************************************************************************
       //Specialized Shader for DepthPeeling purpose
-      class DepthPeelingShader: public PeelingShader
+      class SOFA_LDIDETECTION_API DepthPeelingShader: public PeelingShader
       {
       public:
           DepthPeelingShader();
@@ -124,7 +125,7 @@ protected:
     
     //*******************************************************************************************
     //Specialized Shader for DepthPeeling purpose, when at most 2 models are rendered
-    class DepthPeelingShaderRenderPair: public DepthPeelingShader
+    class SOFA_LDIDETECTION_API DepthPeelingShaderRenderPair: public DepthPeelingShader
     {
     public:
         virtual bool load();

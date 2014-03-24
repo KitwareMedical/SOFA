@@ -13,6 +13,7 @@
 #ifndef SOFA_COMPONENT_COLLISION_LDIDETECTION_H
 #define SOFA_COMPONENT_COLLISION_LDIDETECTION_H
 
+#include "initldidetection.h"
 //#include <sofa/component/collision/DepthPeeling.h>
 #include "DepthPeeling.h"
 #include "DepthPeelingUtility.h"
@@ -84,7 +85,7 @@ namespace sofa
 
       /***************************************************************************************/
 
-      class LDIDetectionOutputVector : public DetectionOutputVector
+      class SOFA_LDIDETECTION_API LDIDetectionOutputVector : public DetectionOutputVector
       {
         public:
 
@@ -110,7 +111,7 @@ namespace sofa
 
       typedef std::pair< Vector3, Vector3 > BoundingBox;
 
-      class LDIDetection: public CollisionAlgorithm
+      class SOFA_LDIDETECTION_API LDIDetection: public CollisionAlgorithm
       {
         public :
         SOFA_CLASS(LDIDetection,CollisionAlgorithm);
