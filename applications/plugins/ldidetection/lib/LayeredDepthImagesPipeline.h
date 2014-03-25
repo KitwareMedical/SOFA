@@ -38,7 +38,7 @@ namespace sofa
       using namespace sofa::defaulttype;
       typedef std::pair< Vector3, Vector3 > BoundingBox;
 
-      class LayeredDepthImagesPipeline : public sofa::simulation::PipelineImpl
+      class SOFA_LDIDETECTION_API LayeredDepthImagesPipeline : public sofa::simulation::PipelineImpl
 	{
 
       public:

@@ -25,6 +25,7 @@
 #ifndef SOFA_COMPONENT_CONSTRAINT_CONTACTCONSTRAINT_H
 #define SOFA_COMPONENT_CONSTRAINT_CONTACTCONSTRAINT_H
 
+#include "initldidetection.h"
 #include <sofa/core/topology/BaseMeshTopology.h> 
 #include <sofa/core/behavior/LMConstraint.h>
 #include <sofa/helper/fixed_array.h>
@@ -73,7 +74,7 @@ namespace constraint
 
   /// This class can be overridden if needed for additionnal storage within template specializations.
   template <class DataTypes>
-  class ContactConstraintInternalData
+  class SOFA_LDIDETECTION_API ContactConstraintInternalData
   {
   };
 

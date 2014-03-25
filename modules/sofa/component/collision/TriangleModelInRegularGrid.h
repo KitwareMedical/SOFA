@@ -40,7 +40,7 @@ namespace collision
 using namespace sofa::defaulttype;
 using namespace sofa::core::topology;
 
-class TriangleModelInRegularGrid : public TriangleModel
+class SOFA_MESH_COLLISION_API TriangleModelInRegularGrid : public TriangleModel
 {
 public:
     SOFA_CLASS(TriangleModelInRegularGrid, TriangleModel);

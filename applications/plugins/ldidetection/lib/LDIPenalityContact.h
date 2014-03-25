@@ -37,7 +37,7 @@ namespace sofa
       using namespace sofa::defaulttype;
 
       template < class TCollisionModel1=TriangleModel, class TCollisionModel2=TriangleModel, class ResponseDataTypes = sofa::defaulttype::Vec3Types >
-        class LDIPenalityContact :  public core::collision::Contact
+        class SOFA_LDIDETECTION_API LDIPenalityContact :  public core::collision::Contact
 	{
 
 
