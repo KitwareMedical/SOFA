@@ -1,23 +1,3 @@
-#============================================================================
-#
-# Program: SOFA
-#
-# Copyright (c) Kitware Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0.txt
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-#============================================================================
-
 # -------------------------------------------------------------------------
 # Find and install SOFA external libs
 # -------------------------------------------------------------------------
@@ -32,11 +12,25 @@ if (WIN32)
 else()
 
   # Assume that all the external libs are in the form lib_LIBRARIES and lib_INCLUDE_DIR
-  set(libraries "OPENGL;GLUT;GLEW;PNG;ZLIB;")
+  set(libraries "GLUT;GLEW;PNG;ZLIB;")
   foreach(lib ${libraries})
     foreach(target ${${lib}_LIBRARIES})
       if (EXISTS ${target} AND NOT IS_DIRECTORY ${target})
-        install(FILES ${target} DESTINATION ${SOFA-INSTALL_BIN_DIR} COMPONENT Runtime)
+
+        # Note: Library symlinks are always named "lib.*.dylib" on mac or "lib.so.*" on linux
+        get_filename_component(lib_dir ${target} PATH)
+        get_filename_component(lib_real_path ${target} REALPATH)
+        get_filename_component(lib_real_dir ${lib_real_path} PATH)
+        get_filename_component(lib_name ${target} NAME_WE)
+        install(DIRECTORY ${lib_real_dir}/
+          DESTINATION ${SOFA-INSTALL_BIN_DIR} COMPONENT Runtime
+          FILES_MATCHING PATTERN "${lib_name}*"
+          PATTERN "${lib_name}*.a" EXCLUDE)
+        if (NOT "${lib_dir}" STREQUAL "${lib_real_dir}")
+          install(CODE "message(\"External library ${lib} at ${target} sym-links to a different directory: ${lib_real_dir} .\")"
+            CONFIGURATIONS Release)
+          message(WARNING "External library ${lib} at ${target} sym-links to a different directory: ${lib_real_dir} .")
+        endif()
       endif()
     endforeach()
   endforeach()
